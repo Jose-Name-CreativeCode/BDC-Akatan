@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Akatan - Próximo salón de eventos en construcción. Vive tus momentos más importantes con estilo y elegancia." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akatan</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  </head>
+  <body>
+    <!-- Capa semitransparente para oscurecer el fondo -->
+    <div class="overlay"></div>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+      <!-- Panel izquierdo con información -->
+      <div class="left-panel">
+        <h1 class="title">¡Próximamente!</h1>
+        <img
+          class="akatanlogo"
+          src="./IMG/19202ima.png"
+          alt="Logotipo de Akatan" />
+        <p class="description">
+          Estamos construyendo un espacio único donde tus momentos más
+          importantes se vivirán con elegancia, estilo y una experiencia
+          inolvidable.
+        </p>
+        <p class="description">El gran día se acerca...</p>
+        <div class="countdown">
+          <div><span>00</span><small>Días</small></div>
+          <div><span>00</span><small>Horas</small></div>
+          <div><span>00</span><small>Minutos</small></div>
+          <div><span>00</span><small>Segundos</small></div>
+        </div>
+        <div class="social-icons">
+          <a
+            href="https://twitter.com/BDG_Akatan"
+            target="_blank"
+            aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="https://www.facebook.com/BDG.Akatan"
+            target="_blank"
+            aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/bdg_akatani/"
+            target="_blank"
+            aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="mailto:info@bdg.com" aria-label="Correo electrónico">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panel derecho vacío para mantener estructura -->
+      <div class="right-panel"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Cuenta regresiva
+      const targetDate = new Date("2026-05-20T00:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+          document.querySelector(".countdown").innerHTML =
+            "<p>¡Evento comenzado!</p>";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const units = [days, hours, minutes, seconds];
+        const elements = document.querySelectorAll(".countdown div span");
+
+        elements.forEach((el, i) => {
+          el.textContent = String(units[i]).padStart(2, "0");
+        });
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Carrusel de fondo
+      const images = ["IMG/akatanim.svg", "IMG/10.svg", "IMG/11.svg"];
+      let index = 0;
+      const interval = 6000;
+
+      function changeBackground() {
+        document.body.style.backgroundImage = `url('${images[index]}')`;
+        index = (index + 1) % images.length;
+      }
+
+      changeBackground(); // inicial
+      setInterval(changeBackground, interval);
+    </script>
+  </body>
+</html>

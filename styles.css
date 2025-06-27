@@ -1,0 +1,185 @@
+/* Reset básico y tipografía */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Fondo dinámico tipo carrusel */
+body {
+    background-image: url('IMG/akatan1.svg');
+    /* fondo por defecto */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+    position: relative;
+}
+
+/* Capa oscura encima del fondo para mejorar legibilidad */
+
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Panel izquierdo */
+.left-panel {
+    width: 40%;
+    background-color: rgba(1, 17, 40, 0.88);
+    /* fondo semitransparente como antes */
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+/* Título */
+.title {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Logotipo */
+.akatanlogo {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 20px;
+    height: auto;
+}
+
+/* Descripción */
+.description {
+    font-size: 20px;
+    margin-bottom: 40px;
+    line-height: 1.4;
+    font-weight: 100;
+}
+
+/* Cuenta regresiva */
+.countdown {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.countdown div {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    text-align: center;
+    border-radius: 6px;
+    min-width: 60px;
+    flex: 1 1 45%;
+}
+
+.countdown span {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.countdown div:hover span {
+    transform: scale(1.1);
+}
+
+.countdown small {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Redes sociales */
+.social-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    justify-content: center;
+}
+
+.social-icons a i {
+    font-size: 32px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icons a i:hover {
+    color: #983555;
+}
+
+/* Panel derecho vacío */
+.right-panel {
+    flex: 1;
+}
+
+/* Media Queries para tablets */
+@media screen and (max-width: 1024px) {
+    .left-panel {
+        width: 50%;
+        padding: 40px 30px;
+    }
+
+    .description {
+        font-size: 24px;
+    }
+
+    .countdown span {
+        font-size: 28px;
+    }
+}
+
+/* Media Queries para móviles */
+@media screen and (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-panel {
+        width: 100%;
+        height: auto;
+        padding: 40px 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .description {
+        font-size: 18px;
+    }
+
+    .countdown {
+        justify-content: center;
+    }
+
+    .countdown div {
+        flex: 1 1 40%;
+        max-width: 120px;
+        margin-bottom: 10px;
+    }
+
+    .right-panel {
+        display: none;
+    }
+}
