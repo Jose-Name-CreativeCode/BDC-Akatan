@@ -1,23 +1,24 @@
 /* Reset básico y tipografía */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-}
-
 html,
 body {
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;
+}
 
+/* Aplicar box-sizing heredado */
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 /* Fondo dinámico tipo carrusel */
 body {
     background-image: url('IMG/akatan1.svg');
-    /* fondo por defecto */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,9 +26,6 @@ body {
     transition: background-image 1s ease-in-out;
     position: relative;
 }
-
-/* Capa oscura encima del fondo para mejorar legibilidad */
-
 
 /* Contenedor principal */
 .container {
@@ -42,15 +40,12 @@ body {
 .left-panel {
     width: 40%;
     background-color: rgba(1, 17, 40, 0.88);
-    /* fondo semitransparente como antes */
     color: white;
     padding: 60px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-
 
 /* Título */
 .title {
@@ -157,7 +152,6 @@ body {
         flex-direction: column;
         height: auto;
     }
-
 
     .title {
         font-size: 24px;
